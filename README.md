@@ -3,9 +3,9 @@ This is a plugin to visualize 4 swerve modules.
 Installation:
  - Download the latest release
  - Insert the file into the Shuffleboard/plugins folder in your user directory
- - In robot code, add an initSendable method to the SwerveModule subsystem, and add something similiar to the following:
+ - In robot code, use the following as a template to create the initSendable method
 
-'''
+```java
 @Override
     public void initSendable(SendableBuilder builder) {
         builder.setSmartDashboardType("SwerveModuleState");
@@ -14,7 +14,7 @@ Installation:
         builder.addDoubleProperty("actualSpeed", () -> this.getState().speedMetersPerSecond, null);
         builder.addDoubleProperty("actualAngle", () -> this.getState().angle.getDegrees(), null);
     }
- '''
+ ```
   - Note: You will need the SwerveModule class to implement Sendable!
   - Once that is added, all that needs to happen is sending the module with something like SmartDashboard.put("Module 1", modules[0]) periodically
   - They will autopopulate on shuffleboard
